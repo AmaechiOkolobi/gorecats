@@ -68,7 +68,7 @@ export default function Sidebar() {
 								color: "white",
 							}}
 						>
-							GEMPAD
+							Kingsale ICO LaunchPad
 						</h1>
 					</Col>
 					<Col xs={8} sm={5} md={4}>
