@@ -12,7 +12,7 @@ export const SidebarData = [
 	},
 	{
 		title: "Create Presale",
-		path: "/",
+		path: "/create",
 		icon: <AiIcons.AiFillAppstore />,
 		cName: "nav-text",
 	},

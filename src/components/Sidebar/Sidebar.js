@@ -7,10 +7,50 @@ import { Button, Row, Col } from "react-bootstrap";
 
 import "./Sidebar.css";
 
-function Sidebar() {
+export default function Sidebar() {
 	const [sidebar, setSidebar] = useState(false);
 
 	const showSidebar = () => setSidebar(!sidebar);
+
+	const [connButtonText, setConnButtonText] = useState('Connect Wallet');
+
+	const [account, setAccount] = useState();
+	const [errorMessage, setErrorMessage] = useState(null);
+	const [defaultAccount, setDefaultAccount] = useState(null);
+
+	const connectWalletHandler =async () => {
+		if (window.ethereum && window.ethereum.isMetaMask) {
+
+			window.ethereum.request({ method: 'eth_requestAccounts'})
+			
+			.then(result => {
+				accountChangedHandler(result[0]);
+				setConnButtonText('Wallet Connected');
+			})
+			.catch(error => {
+				setErrorMessage(error.message);
+			
+			});
+			const accounts = await window.ethereum.request({ method: 'eth_requestAccounts'});
+			setAccount(accounts[0])
+			console.log("ADDRESS: ", accounts[0])
+		} else {
+			console.log('Need to install MetaMask');
+			setErrorMessage('Please install MetaMask browser extension to interact');
+		}
+	}
+
+	const accountChangedHandler = (newAccount) => {
+		setDefaultAccount(newAccount);
+	}
+
+	const chainChangedHandler = () => {
+		window.location.reload();
+	}
+
+	window.ethereum.on('accountsChanged', accountChangedHandler);
+
+	window.ethereum.on('chainChanged', chainChangedHandler);
 
 	return (
 		<>
@@ -28,7 +68,7 @@ function Sidebar() {
 								color: "white",
 							}}
 						>
-							GemSidebar
+							GEMPAD
 						</h1>
 					</Col>
 					<Col xs={8} sm={5} md={4}>
@@ -40,8 +80,9 @@ function Sidebar() {
 								outline: "none",
 							}}
 							className="menu-bar-row-button"
+							onClick={connectWalletHandler}
 						>
-							Connect Wallet
+							{connButtonText}
 						</Button>
 					</Col>
 				</Row>
@@ -69,5 +110,3 @@ function Sidebar() {
 		</>
 	);
 }
-
-export default Sidebar;
