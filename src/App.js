@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Home from "./Pages/Home";
-import Create from "./components/CreatePage/Create";
+import Comics from "./Pages/Comics"
 
 function App() {
 	return (
@@ -11,7 +11,7 @@ function App() {
 			<Sidebar />
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/create" element={<Create />}></Route>
+				<Route path="/comics" element={<Comics />}/>
 			</Routes>
 		</>
 	);

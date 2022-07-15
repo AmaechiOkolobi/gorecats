@@ -1,4 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@font-face {
+	font-family: Agency;
+	src: url(./fonts/AGENCYR.TTF);
+}
+@font-face {
+	font-family: Agency-Italic;
+	src: url(./fonts/Agency.ttf);
+	font-style: italic;
+}
 
 * {
 	box-sizing: border-box;
@@ -14,6 +23,127 @@
 	justify-content: center;
 }
 
+.comics {
+	padding-left: 275px;
+	width: 150%;
+	padding-top: 20px;
+}
+
+.comics-text {
+	width: 50%;
+}
+
+.comics-image {
+	width: 15%;
+	float: left;
+}
+
+.menu-bar-row-button {
+	background-color: #fc6203;
+	color: #fcf003;
+	font-family: monster;
+	font-size: x-large;
+	border-color:  #fc6203;
+	outline: "none";
+	position: relative;
+	left:500px;
+}
+
+.menu-bar-row-button:focus {
+	border-color: #fc6203;
+	color: #fcf003;
+	box-shadow: 0 0 0 0.1rem #fc6203;
+	background-color: #fc6203;
+	outline: "none";
+}
+
+.menu-bar-row-button:hover {
+	background-color: #490000;
+	border-color: #490000;
+	box-shadow: 0 0 0 0.1rem #490000;
+	outline: "none";
+}
+
+.menu-bar-row-button:active {
+	background-color: #490000;
+	border-color: #490000;
+	box-shadow: 0 0 0 0.1rem #490000;
+	outline: "none";
+}
+
+.menu-bar-row-button:visited {
+	background-color: #490000;
+	border-color: #490000;
+	box-shadow: 0 0 0 0.1rem #490000;
+	outline: "none";
+}
+
+@media screen and (min-width: 1196px) {
+	.menu-bar-row {
+		padding-left: 205px;
+	}
+	.menu-bar-row-button {
+		margin-left: 190px;
+	}
+}
+@media screen and (min-width: 970px) {
+	.menu-bar-row-button {
+		margin-left: 120px;
+	}
+}
+
+@media screen and (max-width: 575px) {
+	.menu-bar-row-button {
+		margin-left: 70px;
+	}
+}
+@media screen and (max-width: 575px) {
+	.menu-bar-row-button {
+		margin-left: 70px;
+	}
+}
+
+.subtitle {
+	display: flex;
+	justify-content: left;
+	padding-left: 275px;
+	color: #ffffff;
+	padding-top: 15px;
+}
+
+.book-title {
+	display: flex;
+	padding-left: 30px;
+	color: #ffffff;
+}
+
+.book-author {
+	display:flex;
+	padding-left: 30px;
+	color: #ffffff;
+	font-family: Agency-Italic;
+	background-color: #2f0000;
+	width: 39%;
+}
+
+.book-description {
+	display: flex;
+	padding-left: 30px;
+	padding-top: 20px;
+	color: #ffffff;
+	font-family: Agency;
+}
+
+.book-issue {
+	display: flex;
+	padding-top:10px;
+	padding-left: 30px;
+	width: 32%;
+	color: #ffffff;
+	font-family: Agency;
+	background-color: #2f0000;
+}
+
 body {
-	background-color: #091c29;
+	background-image: url("./images/bg.png");
 }
